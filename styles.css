@@ -1,0 +1,211 @@
+/* Reset margins and padding */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Page container */
+#page1 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+}
+
+/* Navigation styles */
+#nav {
+    width: 100%;
+    background-color: #0068B5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Added padding for better spacing */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.nav-part2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.nav-part2 h4 {
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+    transition: all ease 0.3s;
+    overflow: hidden;
+}
+
+.nav-part2 h4::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    left: 0;
+    bottom: -100%;
+    border-radius: 20%;
+    transition: all ease 0.3s;
+}
+
+.nav-part2 h4:hover::after {
+    bottom: 0;
+    border-radius: 20%;
+}
+
+.nav-part2 h4 a {
+    text-decoration: none;
+    color: black;
+    z-index: 9;
+    position: relative;
+}
+
+.nav-part2 h4:hover a {
+    color: antiquewhite;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#nav h1 {
+    text-align: center;
+    margin: 0; /* Removed top margin for better alignment */
+    color: #fff;
+    font-size: 2.5rem; /* Adjusted for better scaling */
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Center container */
+#center {
+    background-color: rgba(63, 67, 67, 0.214);
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    border-bottom: solid 10px black;
+    padding: 20px; /* Added padding for spacing */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+    overflow: hidden; /* Prevent overflow within the center container */
+}
+
+/* Left card */
+#left {
+    height: calc(100% - 40px); /* Reduce height by 40px to make it smaller from top and bottom */
+    background: linear-gradient(to right, #006400, #00ff00);
+    font-size: 1.25rem; /* Responsive font size */
+    width: 60%;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    margin: 0 10px; /* Adjusted margin for spacing */
+    background-size: cover;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adjusted text shadow */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+#left:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Right card */
+#right {
+    height: calc(100% - 40px); /* Reduce height by 40px to make it smaller from top and bottom */
+    background: linear-gradient(to right, #00ff00, #006400);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%; /* Full width of center container */
+    max-width: 500px; /* Max width for smaller screens */
+    margin: 0 10px; /* Adjusted margin for spacing */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+    text-align: center;
+}
+
+#right:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #nav h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+    #left, #right {
+        width: 100%; /* Full width for smaller screens */
+        height: auto; /* Auto height for flexibility */
+        margin: 10px 0; /* Adjusted margin for spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-part2 h4 {
+        font-size: 0.875rem; /* Smaller font size for smaller screens */
+    }
+
+    #nav h1 {
+        font-size: 1.5rem; /* Further reduced font size */
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -100%;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+#left h1 {
+    font-size: 3rem; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    color: #fff; /* White text color */
+    text-align: center; /* Center-align the text */
+    margin: 20px 0; /* Add vertical margin */
+    padding: 10px; /* Add padding around the text */
+    background: linear-gradient(45deg, #ff007f, #6a11cb); /* Gradient background */
+    background-size: 200% 200%; /* Double the size for animation effect */
+    animation: shine 3s ease infinite; /* Animation for shine effect */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text; /* Clip background to text */
+}
+
+#page1 {
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+}
+
+#page1 video {
+    margin-top: 1vh;
+    width: 100vw; /* Full width of the viewport */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 50vh; /* Limit height to 50% of viewport height */
+    border-radius: 30px; /* Rounded corners */
+    object-fit: cover; /* Ensure the video covers the container */
+}
