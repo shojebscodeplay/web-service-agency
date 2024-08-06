@@ -24,19 +24,19 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; /* Added padding for better spacing */
+    padding: 10px 5%; /* Adjust padding for responsiveness */
     box-sizing: border-box; /* Include padding in width calculation */
 }
 
+/* Navigation links */
 .nav-part2 {
     display: flex;
     align-items: center;
-    gap: 5px;
-    position: relative;
+    gap: 15px; /* Increased gap for better spacing */
 }
 
 .nav-part2 h4 {
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: 2px solid black;
     border-radius: 50px;
     font-weight: bold;
@@ -87,9 +87,9 @@ html, body {
 
 #nav h1 {
     text-align: center;
-    margin: 0; /* Removed top margin for better alignment */
+    margin: 0;
     color: #fff;
-    font-size: 2.5rem; /* Adjusted for better scaling */
+    font-size: 2rem; /* Adjust font size for responsiveness */
     animation: fadeInUp 1s ease-out;
 }
 
@@ -99,67 +99,90 @@ html, body {
     height: 80vh;
     width: 100%;
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     border-bottom: solid 10px black;
-    padding: 20px; /* Added padding for spacing */
-    box-sizing: border-box; /* Ensure padding is included in width/height */
-    overflow: hidden; /* Prevent overflow within the center container */
-}
-
-/* Left card */
-#left {
-    height: calc(100% - 40px); /* Reduce height by 40px to make it smaller from top and bottom */
-    background: linear-gradient(to right, #006400, #00ff00);
-    font-size: 1.25rem; /* Responsive font size */
-    width: 60%;
     padding: 20px;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #fff;
-    margin: 0 10px; /* Adjusted margin for spacing */
-    background-size: cover;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adjusted text shadow */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-    transition: transform 0.3s ease; /* Smooth scaling transition */
-}
-
-#left:hover {
-    transform: scale(1.05); /* Scale up on hover */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Right card */
 #right {
-    height: calc(100% - 40px); /* Reduce height by 40px to make it smaller from top and bottom */
     background: linear-gradient(to right, #00ff00, #006400);
-    padding: 10px;
+    padding: 15px;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%; /* Full width of center container */
-    max-width: 500px; /* Max width for smaller screens */
-    margin: 0 10px; /* Adjusted margin for spacing */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-    transition: transform 0.3s ease; /* Smooth scaling transition */
-    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 90vw; /* Adjusted max-width for responsiveness */
+    margin: 0 auto;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    position: relative;
 }
 
 #right:hover {
-    transform: scale(1.05); /* Scale up on hover */
+    transform: scale(1.05);
+}
+
+#right h1 {
+    font-size: 2rem; /* Adjusted font size for better scaling */
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    background: linear-gradient(45deg, #ff007f, #6a11cb);
+    background-size: 200% 200%;
+    animation: shine 3s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+#right img {
+    display: block;
+    width: 80%; /* Adjusted width for responsiveness */
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Video styles */
+#page1 video {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Page2 styles */
+#page2 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #ff007f;
 }
 
 /* Responsive design adjustments */
 @media (max-width: 768px) {
     #nav h1 {
-        font-size: 2rem; /* Smaller font size for smaller screens */
+        font-size: 1.5rem; /* Smaller font size for smaller screens */
     }
 
-    #left, #right {
-        width: 100%; /* Full width for smaller screens */
+    #right {
+        width: 100%;
+        max-width: 100%; /* Full width for smaller screens */
         height: auto; /* Auto height for flexibility */
-        margin: 10px 0; /* Adjusted margin for spacing */
+        margin: 10px 0;
+    }
+
+    .nav-part2 {
+        flex-direction: column; /* Stack navigation links vertically */
+    }
+
+    .nav-part2 h4 {
+        margin-bottom: 10px; /* Add margin between links */
     }
 }
 
@@ -169,43 +192,6 @@ html, body {
     }
 
     #nav h1 {
-        font-size: 1.5rem; /* Further reduced font size */
+        font-size: 1.2rem; /* Further reduced font size */
     }
-}
-
-@keyframes shine {
-    0% {
-        background-position: -100%;
-    }
-    100% {
-        background-position: 100%;
-    }
-}
-
-#left h1 {
-    font-size: 3rem; /* Adjust font size */
-    font-weight: bold; /* Make text bold */
-    color: #fff; /* White text color */
-    text-align: center; /* Center-align the text */
-    margin: 20px 0; /* Add vertical margin */
-    padding: 10px; /* Add padding around the text */
-    background: linear-gradient(45deg, #ff007f, #6a11cb); /* Gradient background */
-    background-size: 200% 200%; /* Double the size for animation effect */
-    animation: shine 3s ease infinite; /* Animation for shine effect */
-    -webkit-background-clip: text; /* Clip background to text */
-    background-clip: text; /* Clip background to text */
-}
-
-#page1 {
-    display: flex;
-    justify-content: center; /* Center the video horizontally */
-}
-
-#page1 video {
-    margin-top: 1vh;
-    width: 100vw; /* Full width of the viewport */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 50vh; /* Limit height to 50% of viewport height */
-    border-radius: 30px; /* Rounded corners */
-    object-fit: cover; /* Ensure the video covers the container */
 }
